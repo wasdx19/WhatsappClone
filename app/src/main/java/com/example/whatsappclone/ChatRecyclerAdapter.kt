@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
 class ChatRecyclerAdapter(
-    private val item: List<String>
+    private val item: List<Chats>
 ) : RecyclerView.Adapter<ChatRecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,10 +30,23 @@ class ChatRecyclerAdapter(
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
         lateinit var nameTextView: TextView
+        lateinit var msgTextView: TextView
+        lateinit var avatarView: AppCompatImageView
+        lateinit var dateTextView: TextView
 
-        fun bind(item: String){
+        fun bind(item: Chats){
             nameTextView = itemView.findViewById(R.id.nameTextView)
-            nameTextView.text = item
+            msgTextView = itemView.findViewById(R.id.msgTextView)
+            avatarView = itemView.findViewById(R.id.avatarView)
+            dateTextView = itemView.findViewById(R.id.dateTextView)
+
+            nameTextView.text = item.name
+            msgTextView.text = item.demoText
+            dateTextView.text = item.date
+
+            avatarView.setImageDrawable(
+                ContextCompat.getDrawable(itemView.context, item.avatar)
+            )
         }
     }
 }
