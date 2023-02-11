@@ -1,11 +1,13 @@
 package com.example.whatsappclone
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.whatsappclone.chats.ChatRecyclerAdapter
+import com.example.whatsappclone.chats.detail.ChatDetailActivity
 
 class ChatsFragment: Fragment(R.layout.fragment_chats) {
 
@@ -14,7 +16,14 @@ class ChatsFragment: Fragment(R.layout.fragment_chats) {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        recyclerView.adapter = ChatRecyclerAdapter(getChatSampleData())
+        recyclerView.adapter = ChatRecyclerAdapter(
+            item = getChatSampleData(),
+            onItemClickListener = { name ->
+                val intent = Intent(activity, ChatDetailActivity::class.java)
+                intent.putExtra("ARG_NAME", name)
+                startActivity(intent)
+            }
+        )
     }
 
     private fun getChatSampleData() = mutableListOf<Chats>().apply {
@@ -24,7 +33,7 @@ class ChatsFragment: Fragment(R.layout.fragment_chats) {
                     Chats(
                         name = "Ansar",
                         demoText = "Hello everyone!!!",
-                        avatar = R.drawable.ic_person,
+                        avatarUrl = "https://static.life.ru/publications/2022/7/19/691126209796.8171.jpeg",
                         date = "02.02.2023"
                     )
                 )
@@ -33,7 +42,7 @@ class ChatsFragment: Fragment(R.layout.fragment_chats) {
                     Chats(
                         name = "Kaira",
                         demoText = "Ans Ans!!!",
-                        avatar = R.drawable.ic_default,
+                        avatarUrl = "https://sun9-33.userapi.com/s/v1/if1/_tGuL3gHjX9UHw5965lLOKamdP8elM-quxp2xYFXESqvPU0AciZ1bZaDNyhSNpfqnF-gpZ5-.jpg?size=200x200&quality=96&crop=121,0,360,360&ava=1",
                         date = "02.02.2023"
                     )
                 )
@@ -42,7 +51,7 @@ class ChatsFragment: Fragment(R.layout.fragment_chats) {
                     Chats(
                         name = "Zhasik",
                         demoText = "Ya chert!!!",
-                        avatar = R.drawable.ic_default,
+                        avatarUrl = "https://www.meme-arsenal.com/memes/ec1dfa6ef836050d28387bd0cf451305.jpg",
                         date = "02.02.2023"
                     )
                 )
@@ -54,6 +63,6 @@ class ChatsFragment: Fragment(R.layout.fragment_chats) {
 data class Chats(
     val name: String,
     val demoText: String,
-    @DrawableRes val avatar: Int,
+    val avatarUrl: String,
     val date: String
 )
