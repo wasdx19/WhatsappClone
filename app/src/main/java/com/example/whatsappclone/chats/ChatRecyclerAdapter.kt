@@ -15,7 +15,7 @@ import com.example.whatsappclone.R
 
 class ChatRecyclerAdapter(
     private val item: List<Chats>,
-    private val onItemClickListener: (String) -> Unit
+    private val onItemClickListener: (Chats) -> Unit
 ) : RecyclerView.Adapter<ChatRecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -60,7 +60,7 @@ class ChatRecyclerAdapter(
                 .into(avatarView)
 
             itemViewGroup.setOnClickListener {
-                onItemClickListener(item.name)
+                onItemClickListener(item)
             }
         }
     }

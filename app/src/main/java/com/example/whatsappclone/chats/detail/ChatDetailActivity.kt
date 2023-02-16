@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.whatsappclone.Chats
 import com.example.whatsappclone.R
 import com.example.whatsappclone.broadcastReceivers.BroadcastConstants.DYNAMIC_BROADCAST
 import com.example.whatsappclone.broadcastReceivers.BroadcastConstants.STATIC_BROADCAST
@@ -15,7 +16,7 @@ import com.example.whatsappclone.broadcastReceivers.DynamicBroadcastReceiver
 
 class ChatDetailActivity: AppCompatActivity() {
 
-    var name: String? = null
+    var chat: Chats? = null
 
     private val dynamicBroadcastReceiver = DynamicBroadcastReceiver()
 
@@ -23,7 +24,7 @@ class ChatDetailActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat_detail)
 
-        name = intent.getStringExtra("ARG_NAME")
+        chat = intent.getParcelableExtra<Chats>("ARG_CHAT") as Chats
         setupView()
 
         registerDynamicBroadCast()
@@ -39,7 +40,7 @@ class ChatDetailActivity: AppCompatActivity() {
         val dynamicButton = findViewById<Button>(R.id.dynamicButton)
         val staticButton = findViewById<Button>(R.id.staticButton)
 
-        val greeting = if(name.equals("Kaira")) "Hitler" else name
+        val greeting = if(chat?.name.equals("Kaira")) "Hitler" else chat?.name
         textView.text = "Hi $greeting"
 
         dynamicButton.setOnClickListener {

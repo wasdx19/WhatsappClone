@@ -2,12 +2,14 @@ package com.example.whatsappclone
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.chats.ChatRecyclerAdapter
 import com.example.whatsappclone.chats.detail.ChatDetailActivity
+import kotlinx.parcelize.Parcelize
 
 class ChatsFragment: Fragment(R.layout.fragment_chats) {
 
@@ -18,9 +20,9 @@ class ChatsFragment: Fragment(R.layout.fragment_chats) {
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = ChatRecyclerAdapter(
             item = getChatSampleData(),
-            onItemClickListener = { name ->
+            onItemClickListener = { chat ->
                 val intent = Intent(activity, ChatDetailActivity::class.java)
-                intent.putExtra("ARG_NAME", name)
+                intent.putExtra("ARG_CHAT", chat)
                 startActivity(intent)
             }
         )
@@ -60,9 +62,11 @@ class ChatsFragment: Fragment(R.layout.fragment_chats) {
     }
 }
 
+
+@Parcelize
 data class Chats(
     val name: String,
     val demoText: String,
     val avatarUrl: String,
     val date: String
-)
+): Parcelable
