@@ -24,6 +24,15 @@
         </activity>
 
         <activity android:name=".chats.detail.ChatDetailActivity"/>
+
+        <receiver android:name=".broadcastReceivers.StaticBroadcastReceiver"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <!-- The actions you wish to listen to, below is an example -->
+                <action android:name="com.example.action.STATIC_BROADCAST"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

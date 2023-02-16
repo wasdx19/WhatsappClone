@@ -7,7 +7,25 @@
         android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CHAT DETAIL"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="16dp"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/dynamicButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="16dp"
+        android:text="Send Dynamic Broadcast Receiver"/>
+
+    <Button
+        android:id="@+id/staticButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/dynamicButton"
+        android:layout_marginHorizontal="16dp"
+        android:text="Send Static Broadcast Receiver"/>
 
 </RelativeLayout>
