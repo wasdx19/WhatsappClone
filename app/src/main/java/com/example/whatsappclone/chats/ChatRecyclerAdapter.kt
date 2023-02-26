@@ -3,14 +3,11 @@ package com.example.whatsappclone.chats
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.whatsappclone.Chats
 import com.example.whatsappclone.R
 
 class ChatRecyclerAdapter(

@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.whatsappclone.calls.CallsFragment
+import com.example.whatsappclone.chats.ChatsFragment
+import com.example.whatsappclone.music.MusicListFragment
 import com.example.whatsappclone.status.StatusFragment
 
 class PagerAdapter(
@@ -13,7 +15,7 @@ class PagerAdapter(
 ): FragmentStateAdapter(fragmentManager, lifecycle) {
 
     companion object{
-        const val PAGE_COUNT = 3
+        const val PAGE_COUNT = 4
     }
 
     override fun getItemCount(): Int {
@@ -24,7 +26,8 @@ class PagerAdapter(
         return when(position){
             0 -> ChatsFragment()
             1 -> StatusFragment()
-            else -> CallsFragment()
+            2 -> CallsFragment()
+            else -> MusicListFragment()
         }
     }
 }

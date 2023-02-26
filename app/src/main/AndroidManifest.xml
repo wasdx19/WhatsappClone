@@ -33,6 +33,11 @@
                 <action android:name="com.example.action.STATIC_BROADCAST"/>
             </intent-filter>
         </receiver>
+
+        <service android:name=".service.MusicPlayerService"
+            android:enabled="true"/>
+
+        <activity android:name=".music.detail.MusicDetailActivity"/>
     </application>
 
 </manifest>
