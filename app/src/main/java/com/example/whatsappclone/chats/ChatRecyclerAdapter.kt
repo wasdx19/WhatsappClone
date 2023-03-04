@@ -15,6 +15,8 @@ class ChatRecyclerAdapter(
     private val onItemClickListener: (Chats) -> Unit
 ) : RecyclerView.Adapter<ChatRecyclerAdapter.ViewHolder>() {
 
+    private val chatItems = mutableListOf<Chats>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater
             .from(parent.context)

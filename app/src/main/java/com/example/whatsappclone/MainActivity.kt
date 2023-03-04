@@ -2,9 +2,16 @@ package com.example.whatsappclone
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
+import com.example.whatsappclone.network.AnimeListDTO
+import com.example.whatsappclone.network.ApiClient
+import com.example.whatsappclone.network.ApiServices
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  *  Whatsapp clone
@@ -15,6 +22,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  *  5. RecyclerView item
  */
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,3 +49,13 @@ class MainActivity : AppCompatActivity() {
         ).attach()
     }
 }
+
+
+/***
+ *  1. Загрузить библио
+ *  2. Создать ApiClient
+ *  3. Cоздать ApiServices
+ *  4. Создаем DTO классы зависимо от response
+ *  5. Внутри активити/фрагмент делаем вызов запроса
+ *  6. Обрабатываем полученный ответ
+ */
