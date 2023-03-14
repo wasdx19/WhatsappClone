@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.example.whatsappclone.network.AnimeListDTO
-import com.example.whatsappclone.network.ApiClient
 import com.example.whatsappclone.network.ApiServices
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator

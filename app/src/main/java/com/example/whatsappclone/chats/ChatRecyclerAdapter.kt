@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.whatsappclone.R
+import com.example.whatsappclone.chats.model.Chats
 
 class ChatRecyclerAdapter(
     private val item: List<Chats>,

@@ -7,10 +7,10 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
-import com.example.whatsappclone.chats.Chats
 import com.example.whatsappclone.R
 import com.example.whatsappclone.broadcastReceivers.BroadcastConstants.DYNAMIC_BROADCAST
 import com.example.whatsappclone.broadcastReceivers.DynamicBroadcastReceiver
+import com.example.whatsappclone.chats.model.Chats
 
 
 class ChatDetailActivity: AppCompatActivity() {
