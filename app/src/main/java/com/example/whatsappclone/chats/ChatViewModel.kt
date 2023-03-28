@@ -18,6 +18,10 @@ class ChatViewModel(
     val basketDetailData: LiveData<List<Chats>>
         get() = _basketDetailData
 
+    private val _success = MutableLiveData<Unit>()
+    val success: LiveData<Unit>
+        get() = _success
+
     private val animeList = mutableListOf<Chats>()
 
     fun onViewCreated(){
@@ -37,7 +41,8 @@ class ChatViewModel(
                         )
                     }
 
-                    _basketDetailData.value = animeList
+                    //_basketDetailData.value = animeList
+                    _success.value = Unit
                 }
             }
 

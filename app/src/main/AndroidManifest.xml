@@ -39,6 +39,8 @@
             android:enabled="true"/>
 
         <activity android:name=".music.detail.MusicDetailActivity"/>
+
+        <activity android:name=".sampleNavigation.NavigationSampleActivity"/>
     </application>
 
 </manifest>
