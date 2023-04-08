@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.whatsappclone.chats.model.Chats
 import com.example.whatsappclone.network.AnimeListDTO
 import com.example.whatsappclone.network.ApiServices
+import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,9 +23,25 @@ class ChatViewModel(
     val success: LiveData<Unit>
         get() = _success
 
+    private val _showLoader = MutableLiveData<Boolean>()
+    val showLoader: LiveData<Boolean>
+        get() = _showLoader
+
     private val animeList = mutableListOf<Chats>()
 
     fun onViewCreated(){
+        CoroutineScope(Dispatchers.Main).launch {
+            _showLoader.value = true
+
+            withContext(Dispatchers.IO){
+                loadAnimeList()
+            }
+            _showLoader.value = false
+        }
+    }
+
+    private suspend fun loadAnimeList(){
+        delay(2000L)
         apiServices.getAnimeList().enqueue(object : Callback<AnimeListDTO> {
             override fun onResponse(call: Call<AnimeListDTO>, response: Response<AnimeListDTO>) {
                 val responseSuccess = response.body()
@@ -40,10 +57,8 @@ class ChatViewModel(
                             )
                         )
                     }
-
-                    //_basketDetailData.value = animeList
-                    _success.value = Unit
                 }
+                _basketDetailData.value = animeList
             }
 
             override fun onFailure(call: Call<AnimeListDTO>, t: Throwable) {
@@ -83,6 +98,10 @@ class ChatViewModel(
                 )
             }
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
     }
 
 }
