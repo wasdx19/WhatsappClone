@@ -41,6 +41,8 @@
         <activity android:name=".music.detail.MusicDetailActivity"/>
 
         <activity android:name=".sampleNavigation.NavigationSampleActivity"/>
+
+        <activity android:name=".calls.addChat.ChatCreateActivity"/>
     </application>
 
 </manifest>

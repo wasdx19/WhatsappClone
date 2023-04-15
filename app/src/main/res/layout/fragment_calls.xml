@@ -3,32 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="177dp"
-        android:layout_marginEnd="169dp"
-        android:text="CALLS"
-        android:textColor="@color/black"
-        android:textSize="22sp" />
+    <RelativeLayout
+        android:id="@+id/addGroupViewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="4dp">
 
-    <TextView
-        android:id="@+id/titleTextView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titleTextView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="174dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="174dp"
-        android:text="CALLS"
-        android:textColor="@color/black"
-        android:textSize="22sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:text="Создать группу"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
 
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addGroupViewGroup"/>
 </RelativeLayout>

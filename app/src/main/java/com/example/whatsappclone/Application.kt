@@ -1,6 +1,7 @@
 package com.example.whatsappclone
 
 import android.app.Application
+import com.example.whatsappclone.di.databaseModule
 import com.example.whatsappclone.di.networkModule
 import com.example.whatsappclone.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -18,7 +19,8 @@ class App: Application() {
             androidContext(applicationContext)
             modules(arrayListOf(
                 networkModule,
-                viewModelModule
+                viewModelModule,
+                databaseModule
             ))
         }
     }
